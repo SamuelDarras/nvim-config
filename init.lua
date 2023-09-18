@@ -83,7 +83,7 @@ require('lazy').setup({
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim',       tag = 'legacy', opts = {} },
+      -- { 'j-hui/fidget.nvim',       tag = 'legacy', opts = {} },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
@@ -154,7 +154,7 @@ require('lazy').setup({
     -- Enable `lukas-reineke/indent-blankline.nvim`
     -- See `:help indent_blankline.txt`
     opts = {
-      char = '┊',
+      char = '',
       show_trailing_blankline_indent = false,
     },
   },
@@ -258,6 +258,11 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
+-- Buffer management
+vim.keymap.set('n', '[b', ":bprevious<CR>", { silent = true, desc = "Previus [B]uffer" })
+vim.keymap.set('n', ']b', ":bnext<CR>", { silent = true, desc = "Next [B]uffer" })
+vim.keymap.set('n', '<leader>b', ":call BufferList()<CR>", { silent = true, desc = "[B]uffers list" })
+
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
@@ -311,7 +316,7 @@ vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = 
 
 -- Telescope file browser
 vim.keymap.set('n', '<leader>fb', require('telescope').extensions.file_browser.file_browser,
-  { desc = '[S]earch [R]resume' })
+  { desc = '[F]lie [B]rowser' })
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
@@ -530,6 +535,9 @@ cmp.setup {
 vim.o.expandtab = true
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
+
+-- The line beneath this is called `modeline`. See `:help modeline`
+-- vim: ts=2 sts=2 sw=2 et
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
