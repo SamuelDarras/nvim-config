@@ -262,6 +262,10 @@ vim.keymap.set('n', '[b', ":bprevious<CR>", { silent = true, desc = "Previus [B]
 vim.keymap.set('n', ']b', ":bnext<CR>", { silent = true, desc = "Next [B]uffer" })
 vim.keymap.set('n', '<leader>b', ":call BufferList()<CR>", { silent = true, desc = "[B]uffers list" })
 
+-- File browser
+vim.keymap.set('n', '<leader>fb', ':Explore<CR>', { desc = "[F]ile [B]rowser" })
+vim.keymap.set('n', '<leader>fp', ':Lexplore<CR>', { desc = "[F]ile Browser [P]annel" })
+
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
@@ -285,9 +289,6 @@ require('telescope').setup {
     },
   },
   extenstions = {
-    file_browser = {
-      theme = "everforest",
-    },
   },
 }
 
@@ -314,8 +315,6 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]resume' })
 
 -- Telescope file browser
-vim.keymap.set('n', '<leader>fb', require('telescope').extensions.file_browser.file_browser,
-  { desc = '[F]lie [B]rowser' })
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
@@ -534,6 +533,10 @@ cmp.setup {
 vim.o.expandtab = true
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
+
+vim.g.netrw_banner = false
+vim.g.netrw_liststyle = 3
+vim.g.netrw_winsize = 25
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
