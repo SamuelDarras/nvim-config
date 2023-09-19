@@ -140,7 +140,6 @@ require('lazy').setup({
   },
 
   {
-    -- Theme inspired by Atom
     'sainnhe/everforest',
     priority = 1000,
     config = function()
@@ -154,7 +153,7 @@ require('lazy').setup({
     -- Enable `lukas-reineke/indent-blankline.nvim`
     -- See `:help indent_blankline.txt`
     opts = {
-      char = '',
+      char = '',
       show_trailing_blankline_indent = false,
     },
   },
@@ -535,9 +534,6 @@ cmp.setup {
 vim.o.expandtab = true
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
-
--- The line beneath this is called `modeline`. See `:help modeline`
--- vim: ts=2 sts=2 sw=2 et
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
