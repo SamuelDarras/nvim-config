@@ -11,7 +11,7 @@ return {
             icons_enabled = true,
             theme = 'everforest',
             component_separators = '',
-            section_separators = { left = ' ', right = ' ' },
+            section_separators = { left = '', right = '' },
         },
         sections = {
             lualine_c = {
@@ -30,7 +30,7 @@ return {
                     icon = ' ',
                     display_components = { 'lsp_client', 'spinner',
                         { 'title', 'percentage', 'message' } },
-                    spinner_symbols = { '󰔟', '󱦟', '󱦠', },
+                    spinner_symbols = { '󰔟', '󱦟', '󱦠', '󱦠' },
                 },
                 {
                     'datetime',
