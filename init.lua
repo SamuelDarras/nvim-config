@@ -261,6 +261,7 @@ vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 vim.keymap.set('n', '[b', ":bprevious<CR>", { silent = true, desc = "Previus [B]uffer" })
 vim.keymap.set('n', ']b', ":bnext<CR>", { silent = true, desc = "Next [B]uffer" })
 vim.keymap.set('n', '<leader>b', ":call BufferList()<CR>", { silent = true, desc = "[B]uffers list" })
+vim.keymap.set('n', '<leader>x', ":bd<CR>", { desc = "Close current buffer" })
 
 -- File browser
 vim.keymap.set('n', '<leader>fb', ':Explore<CR>', { desc = "[F]ile [B]rowser" })
