@@ -106,6 +106,10 @@ require('lazy').setup({
     },
   },
 
+  'mattn/emmet-vim',
+
+  'famiu/bufdelete.nvim',
+
   -- Useful plugin to show you pending keybinds.
   { 'folke/which-key.nvim',  opts = {} },
   {
@@ -261,11 +265,10 @@ vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 vim.keymap.set('n', '[b', ":bprevious<CR>", { silent = true, desc = "Previus [B]uffer" })
 vim.keymap.set('n', ']b', ":bnext<CR>", { silent = true, desc = "Next [B]uffer" })
 vim.keymap.set('n', '<leader>b', ":call BufferList()<CR>", { silent = true, desc = "[B]uffers list" })
-vim.keymap.set('n', '<leader>x', ":bd<CR>", { desc = "Close current buffer" })
+vim.keymap.set('n', '<leader>x', ":x<CR>", { desc = "Close current buffer" })
 
 -- File browser
-vim.keymap.set('n', '<leader>fb', ':Explore<CR>', { desc = "[F]ile [B]rowser" })
-vim.keymap.set('n', '<leader>fp', ':Lexplore<CR>', { desc = "[F]ile Browser [P]annel" })
+vim.keymap.set('n', '<leader>E', ':NERDTreeToggle<CR>', { desc = "[F]ile [B]rowser" })
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
@@ -308,7 +311,8 @@ vim.keymap.set('n', '<leader>/', function()
 end, { desc = '[/] Fuzzily search in current buffer' })
 
 vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
-vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
+vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, { desc = '[F]ind [F]iles' })
+vim.keymap.set('n', '<leader>fh', require('telescope.builtin').oldfiles, { desc = '[F]ile [H]istory' })
 vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
@@ -446,10 +450,12 @@ local servers = {
   -- clangd = {},
   -- gopls = {},
   -- pyright = {},
-  -- rust_analyzer = {},
-  -- tsserver = {},
-  -- html = { filetypes = { 'html', 'twig', 'hbs'} },
+  -- html = { filetypes = { 'html', 'twig', 'hbs' } },
 
+  emmet_ls = {},
+  rust_analyzer = {},
+  tsserver = {},
+  jdtls = {},
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
@@ -534,10 +540,6 @@ cmp.setup {
 vim.o.expandtab = true
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
-
-vim.g.netrw_banner = false
-vim.g.netrw_liststyle = 3
-vim.g.netrw_winsize = 25
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
