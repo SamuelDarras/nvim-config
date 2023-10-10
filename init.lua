@@ -462,6 +462,9 @@ local servers = {
       telemetry = { enable = false },
     },
   },
+  hls = {
+    filetypes = { "haskell", "lhaskell", "cabal" },
+  },
 }
 
 -- Setup neovim lua configuration
@@ -540,6 +543,3 @@ cmp.setup {
 vim.o.expandtab = true
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
-
--- The line beneath this is called `modeline`. See `:help modeline`
--- vim: ts=2 sts=2 sw=2 et
