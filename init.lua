@@ -188,12 +188,6 @@ require('lazy').setup({
     },
 
     {
-        'kaarmu/typst.vim',
-        ft = "typst",
-        lazy = false
-    },
-
-    {
         -- Highlight, edit, and navigate code
         'nvim-treesitter/nvim-treesitter',
         dependencies = {
