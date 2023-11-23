@@ -152,6 +152,8 @@ require('lazy').setup({
         end,
     },
 
+    'norcalli/nvim-colorizer.lua',
+
     {
         -- Add indentation guides even on blank lines
         'lukas-reineke/indent-blankline.nvim',
