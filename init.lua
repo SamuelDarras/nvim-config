@@ -273,6 +273,10 @@ vim.keymap.set('n', '<leader>x', ":x<CR>", { desc = "Close current buffer" })
 -- File browser
 vim.keymap.set('n', '<leader>E', ':NERDTreeToggle<CR>', { desc = "[F]ile [B]rowser" })
 
+-- Tabs management
+vim.keymap.set('n', '[t', ":tabp<CR>", { silent = true, desc = "Previus [T]ab" })
+vim.keymap.set('n', ']t', ":tabn<CR>", { silent = true, desc = "Next [T]ab" })
+
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
